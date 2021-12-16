@@ -1,9 +1,9 @@
 # RokuRemote
 
-Has your dog has chewed your Roku remote, while your phone is stuck charging in the bedroom? Well look no further*.
+Has your dog has chewed your Roku remote, while your phone is stuck charging in the bedroom? Well look no further<sup>*</sup>.
 
 
-*<sub>as long as you're on Linux</sub>
+<sub>*as long as you're on Linux</sub>
 
 ## Instructions:
  - ` python3 setup.py build`
