@@ -37,28 +37,28 @@ class CLParser(object):
 
         else:
                 if input == 'e':
-                    print('e')
+                    print('Play/Pause')
                     self._roku.send_command('Play')
                     return
                 if input == 'w':
-                    print('up')
+                    print('Up')
                     self._roku.send_command('up')
                     return
                 if input == 's':
-                    print('down')
+                    print('Down')
                     self._roku.send_command('Down')
                     return
                 if input == 'a':
                     self._roku.send_command('Left')
-                    print('left')
+                    print('Left')
                     return
                 if input == 'd':
                     self._roku.send_command('Right')
-                    print('right')
+                    print('Right')
                     return
                 if input == 'z':
-                    self._roku.send_command('Select')
                     print('Enter')
+                    self._roku.send_command('Select')
                     return
                 if input == '/':
                     print('Goodbye!')
@@ -71,4 +71,4 @@ class CLParser(object):
                     self.print_help()
                     return
                 else:
-                    print('try again')
+                    print('Try again.')
