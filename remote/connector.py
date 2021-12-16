@@ -1,5 +1,5 @@
 import requests
-
+import sys
 
 class RokuConnector(object):
 
@@ -21,3 +21,4 @@ class RokuConnector(object):
             return r.ok
         else:
             print('shit sorry try again')
+            sys.exit()

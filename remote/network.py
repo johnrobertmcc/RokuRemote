@@ -1,4 +1,5 @@
 import nmap
+import sys
 
 class Network(object):
     """
@@ -26,8 +27,9 @@ class Network(object):
         nm.scan(hosts=network, arguments='-sn')
         host_list = [(x, nm[x]['status']['state']) for x in nm.all_hosts()]
 
-        for item in nm.all_hosts():
-            print(item)
+        if len(host_list) == 0:
+            print('No devices found :(')
+            sys.exit()
 
         for host, status in host_list:
             self.ip_addresses.append(host)
@@ -43,7 +45,7 @@ class Network(object):
                 for i, address in enumerate(self.ip_addresses):
                     self.dict[str(i)] = address
                     print(i, address)
-                print('Are any of these your Roku?: ')
+                print('Are any of these your Roku? (type any letter if not) ')
                 ipadd = input()
 
                 if ipadd in self.dict:
@@ -51,7 +53,7 @@ class Network(object):
                 else:
                     print("Sorry, I'm not sure how to help you :(")
                     self.roku_ip = 'none found'
-                    return
+                    sys.exit()
             else:
                 return
 

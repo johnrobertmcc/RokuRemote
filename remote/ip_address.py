@@ -29,7 +29,7 @@ class IP():
                 self.scrape_network()
             elif inp.upper() == 'N':
                 print('Ok bye.')
-                self.running = False
+                sys.exit()
             else:
                 print('Try again? (Y/N)')
                 self.ip = True
