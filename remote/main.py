@@ -15,6 +15,7 @@ def main():
 
     if address.ip == 'none found':
         print("Goodbye!")
+        sys.exit()
     else:
         roku = RokuConnector(address.ip)
         sys.stdout.write('Press / to exit, ? for help\n')

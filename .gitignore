@@ -1,5 +1,6 @@
-.build
-.dist
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
 
 # C extensions
 *.so
@@ -19,6 +20,7 @@ develop-eggs
 .installed.cfg
 lib
 lib64
+*__pycache__
 
 # Logs
 *.log
@@ -65,3 +67,6 @@ virtualization/vagrant/config
 
 # mypy
 /.mypy_cache/*
+
+# pycache
+
