@@ -25,7 +25,6 @@ class CLParser(object):
 
 
     def handle_input(self, input):
-
         """
             Takes the input and sends the required request to Roku.
 

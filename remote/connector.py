@@ -3,7 +3,7 @@ import requests
 
 class RokuConnector(object):
 
-    def __init__(self, ip):
+    def __init__(self, ip = False):
         self.ip = ip
         self.uri = 'http://{}:8060'.format(self.ip)
 
