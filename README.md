@@ -29,4 +29,5 @@ Has your dog has chewed your Roku remote, while your phone is stuck charging in 
 
 ## Noted Issues:
 - If the IP address is not known, the program uses `nmap` to check for available devices. This is not always reliable.
+   - If you have an idea, [answer here!](https://stackoverflow.com/questions/70374875/python-nmap-not-showing-same-results-as-terminal)
 - Multiple, successive post requests to Roku can timeout if asked in rapid succession.
