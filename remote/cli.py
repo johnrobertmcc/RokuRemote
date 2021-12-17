@@ -32,6 +32,7 @@ class CLParser(object):
         print('4 = HDMI4')
         print('q = Back')
         print('k = Keyboard')
+        print('l = Backspace')
         print('/ = Exit Remote')
 
 
