@@ -21,6 +21,17 @@ class CLParser(object):
         print('a = Left')
         print('d = Right')
         print('z = Enter')
+        print('0 = Mute')
+        print('[ = Volume Down')
+        print('] = Volume Up')
+        print('on = Power On')
+        print('off = Power Off')
+        print('1 = HDMI1')
+        print('2 = HDMI2')
+        print('3 = HDMI3')
+        print('4 = HDMI4')
+        print('q = Back')
+        print('k = Keyboard')
         print('/ = Exit Remote')
 
 
@@ -31,17 +42,50 @@ class CLParser(object):
             @param {input} The string input from the user.
         """
 
-        if self._keymode:
-            print('keyboard mode!')
+        if self._keymode == True:
+            if input == 'esc':
+                print('Exiting keyboard mode.')
+                self._keymode = False
+            else:
+                if len(input)>1:
+                    for i in range(len(input)):
+                        self._roku.send_command(f'Lit_{input[i]}')
+                else:
+                    self._roku.send_command(f'Lit_{input}')
+
 
         else:
                 if input == 'e':
                     print('Play/Pause')
                     self._roku.send_command('Play')
                     return
+                if input == ']':
+                    print('Volume Up')
+                    self._roku.send_command('VolumeUp')
+                    return
+                if input == '0':
+                    print('Mute')
+                    self._roku.send_command('VolumeMute')
+                    return
+                if input == 'off':
+                    print('Power Off')
+                    self._roku.send_command('PowerOff')
+                    return
+                if input == 'on':
+                    print('Power On')
+                    self._roku.send_command('PowerOn')
+                    return
+                if input == '[':
+                    print('Volume Down')
+                    self._roku.send_command('VolumeDown')
+                    return
                 if input == 'w':
                     print('Up')
-                    self._roku.send_command('up')
+                    self._roku.send_command('Up')
+                    return
+                if input == 'h':
+                    print('Home')
+                    self._roku.send_command('Home')
                     return
                 if input == 's':
                     print('Down')
@@ -58,6 +102,39 @@ class CLParser(object):
                 if input == 'z':
                     print('Enter')
                     self._roku.send_command('Select')
+                    return
+                if input == 'q':
+                    print('Back')
+                    self._roku.send_command('Back')
+                    return
+                if input == '1':
+                    print('HDMI1')
+                    self._roku.send_command('InputHDMI1')
+                    return
+                if input == '2':
+                    print('HDMI2')
+                    self._roku.send_command('InputHDMI2')
+                    return
+                if input == '3':
+                    print('HDMI3')
+                    self._roku.send_command('InputHDMI3')
+                    return
+                if input == '4':
+                    print('HDMI4')
+                    self._roku.send_command('InputHDMI4')
+                    return
+                if input == 'q':
+                    print('Back')
+                    self._roku.send_command('Back')
+                    return
+                if input == 'l':
+                    print('Backspace')
+                    self._roku.send_command('Backspace')
+                    return
+                if input == 'k':
+                    print('Keyboard Mode\n')
+                    print('Type "esc" at any time to exit keyboard.')
+                    self._keymode = True
                     return
                 if input == '/':
                     print('Goodbye!')
