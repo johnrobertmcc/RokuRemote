@@ -5,6 +5,34 @@ Has your dog has chewed your Roku remote, while your phone is stuck charging in 
 
 <sub>*as long as you're on Linux</sub>
 
+Available commands:
+```
+? = help
+e = Play
+w = Up
+s = Down
+a = Left
+d = Right
+z = Enter
+0 = Mute
+[ = Volume Down
+] = Volume Up
+on = Power On
+off = Power Off
+1 = HDMI1
+2 = HDMI2
+3 = HDMI3
+4 = HDMI4
+q = Back
+k = Keyboard
+/ = Exit Remote
+
+
+```
+
+**UPDATE 12/17/21**
+This now supports keyboard entry.
+
 ## Instructions:
  - ` python3 setup.py build`
  - `sudo python3 setup.py install`
@@ -14,20 +42,6 @@ Has your dog has chewed your Roku remote, while your phone is stuck charging in 
  -  Type `?` or `help` for a list of available commands
 
 ## Updates Planned:
-- Currently, this remote only controls Roku and will not control your TV(even if a Roku TV). This prevents:
-   - Volume control.
-   - Power on/off.
-   - Changing to different inputs.
-   - And more!
-   - Check the progress of these updates on `feature/add-volume`
 
 - This program does currently use an `input()`, and not a keypress listener. 
    - Check the progress for this update on branch `feature/add-keypress-events`
-
-- This program currently utilizes no keyboard entry. This is ridiculously annoying.
-   - There is no active branch for this currently. Immediate release planned, however. It is the most annoying aspect of any remote.
-
-## Noted Issues:
-- If the IP address is not known, the program uses `nmap` to check for available devices. This is not always reliable.
-   - If you have an idea, [answer here!](https://stackoverflow.com/questions/70374875/python-nmap-not-showing-same-results-as-terminal)
-- Multiple, successive post requests to Roku can timeout if asked in rapid succession.
