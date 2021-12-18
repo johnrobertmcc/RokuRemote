@@ -1,6 +1,5 @@
 import requests
 import sys
-import json
 import xmltodict
 
 class RokuConnector(object):
@@ -17,8 +16,6 @@ class RokuConnector(object):
         """
 
         commands = '{}/keypress/{}'.format(self.uri, cmd)
-        print('the ip address is')
-        print('{}/keypress/{}'.format(self.uri, cmd))
         r = requests.post(commands)
 
         if r.ok:
@@ -86,12 +83,16 @@ class RokuConnector(object):
         for idx in range(len(channels)):
             print('{} - {}'.format(idx, channels[idx]))
 
-        print("Or enter any letter to return to remote. ")
+        print("Enter any letter to return to remote. ")
         i = input()
-        if i.isnumeric():
+
+        if i == '/':
+            print("Goodbye!")
+            exit()
+        elif i.isnumeric():
             self.launch_channel(ids[int(i)])
             print("Changing Channel...")
         else:
-            print("<-- Back to remote")
+            print("Back to remote.")
             return
 

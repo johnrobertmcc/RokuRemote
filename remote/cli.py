@@ -24,7 +24,7 @@ class CLParser(object):
         print('] = Volume Up')
         print('on = Power On')
         print('off = Power Off')
-        print('channel = List of available channels')
+        print('i = Info')
         print('1 = HDMI1')
         print('2 = HDMI2')
         print('3 = HDMI3')
@@ -33,14 +33,23 @@ class CLParser(object):
         print('k = Keyboard')
         print(' = Backspace')
         print('/ = Exit Remote')
+        print('----------')
+        print('List of available channels:')
+        print('  netflix')
+        print('  youtube')
+        print('  amazon')
+        print('  hulu')
+        print('type "channels" to see all available channels')
 
 
-    def handle_input(self, input):
+    def handle_input(self, prompt):
         """
             Takes the input and sends the required request to Roku.
 
             @param {input} The string input from the user.
         """
+
+        input = prompt.lower()
 
         if self._keymode == True:
             if input == 'esc':
@@ -52,7 +61,6 @@ class CLParser(object):
                         self._roku.send_command(f'Lit_{input[i]}')
                 else:
                     self._roku.send_command(f'Lit_{input}')
-
 
         else:
                 if input == 'e':
@@ -82,6 +90,10 @@ class CLParser(object):
                 if input == 'w':
                     print('Up')
                     self._roku.send_command('Up')
+                    return
+                if input == 'i':
+                    print('Info')
+                    self._roku.send_command('Info')
                     return
                 if input == 'h':
                     print('Home')
