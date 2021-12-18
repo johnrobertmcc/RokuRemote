@@ -1,5 +1,3 @@
-import sys
-
 class CLParser(object):
     """
         Takes the user's input and sends a request to the Roku.
@@ -26,13 +24,14 @@ class CLParser(object):
         print('] = Volume Up')
         print('on = Power On')
         print('off = Power Off')
+        print('channel = List of available channels')
         print('1 = HDMI1')
         print('2 = HDMI2')
         print('3 = HDMI3')
         print('4 = HDMI4')
         print('q = Back')
         print('k = Keyboard')
-        print('l = Backspace')
+        print(' = Backspace')
         print('/ = Exit Remote')
 
 
@@ -104,6 +103,34 @@ class CLParser(object):
                     print('Enter')
                     self._roku.send_command('Select')
                     return
+                if input == 'netflix':
+                    print('Netflix')
+                    self._roku.launch_channel('12')
+                    return
+                if input == 'amazon':
+                    print('Amazon')
+                    self._roku.launch_channel('13')
+                    return
+                if input == 'showtime':
+                    print('Showtime')
+                    self._roku.launch_channel('8838')
+                    return
+                if input == 'hulu':
+                    print('Hulu')
+                    self._roku.launch_channel('2285')
+                    return
+                if input == 'youtube':
+                    print('YouTube')
+                    self._roku.launch_channel('837')
+                    return
+                if input == 'peacock':
+                    print('Peacock')
+                    self._roku.launch_channel('593099')
+                    return
+                if input == 'channels':
+                    print('Please select a channel: ')
+                    x = self._roku.get_channel_ids()
+                    return
                 if input == 'q':
                     print('Back')
                     self._roku.send_command('Back')
@@ -133,7 +160,7 @@ class CLParser(object):
                     self._roku.send_command('Backspace')
                     return
                 if input == 'k':
-                    print('Keyboard Mode\n')
+                    print('Keyboard Mode')
                     print('Type "esc" at any time to exit keyboard.')
                     self._keymode = True
                     return
