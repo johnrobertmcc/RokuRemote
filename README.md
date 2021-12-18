@@ -7,13 +7,13 @@ Has your dog has chewed your Roku remote, while your phone is stuck charging in 
 
 Available commands:
 ```
-? = help
-e = Play
+e = Play/Pause
+q = Back
+z = Enter
 w = Up
 s = Down
 a = Left
 d = Right
-z = Enter
 0 = Mute
 [ = Volume Down
 ] = Volume Up
@@ -23,10 +23,19 @@ off = Power Off
 2 = HDMI2
 3 = HDMI3
 4 = HDMI4
-q = Back
+i = Info
 k = Keyboard
+l = Backspace
 / = Exit Remote
 
+----------
+
+Type "channels" to see all available channels.
+Quick Channels available:
+  Netflix
+  YouTube
+  Amazon
+  Hulu
 
 ```
 
