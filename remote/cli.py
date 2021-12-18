@@ -1,5 +1,3 @@
-import sys
-
 class CLParser(object):
     """
         Takes the user's input and sends a request to the Roku.
@@ -26,22 +24,32 @@ class CLParser(object):
         print('] = Volume Up')
         print('on = Power On')
         print('off = Power Off')
+        print('i = Info')
         print('1 = HDMI1')
         print('2 = HDMI2')
         print('3 = HDMI3')
         print('4 = HDMI4')
         print('q = Back')
         print('k = Keyboard')
-        print('l = Backspace')
+        print(' = Backspace')
         print('/ = Exit Remote')
+        print('----------')
+        print('List of available channels:')
+        print('  netflix')
+        print('  youtube')
+        print('  amazon')
+        print('  hulu')
+        print('type "channels" to see all available channels')
 
 
-    def handle_input(self, input):
+    def handle_input(self, prompt):
         """
             Takes the input and sends the required request to Roku.
 
             @param {input} The string input from the user.
         """
+
+        input = prompt.lower()
 
         if self._keymode == True:
             if input == 'esc':
@@ -53,7 +61,6 @@ class CLParser(object):
                         self._roku.send_command(f'Lit_{input[i]}')
                 else:
                     self._roku.send_command(f'Lit_{input}')
-
 
         else:
                 if input == 'e':
@@ -84,6 +91,10 @@ class CLParser(object):
                     print('Up')
                     self._roku.send_command('Up')
                     return
+                if input == 'i':
+                    print('Info')
+                    self._roku.send_command('Info')
+                    return
                 if input == 'h':
                     print('Home')
                     self._roku.send_command('Home')
@@ -103,6 +114,34 @@ class CLParser(object):
                 if input == 'z':
                     print('Enter')
                     self._roku.send_command('Select')
+                    return
+                if input == 'netflix':
+                    print('Netflix')
+                    self._roku.launch_channel('12')
+                    return
+                if input == 'amazon':
+                    print('Amazon')
+                    self._roku.launch_channel('13')
+                    return
+                if input == 'showtime':
+                    print('Showtime')
+                    self._roku.launch_channel('8838')
+                    return
+                if input == 'hulu':
+                    print('Hulu')
+                    self._roku.launch_channel('2285')
+                    return
+                if input == 'youtube':
+                    print('YouTube')
+                    self._roku.launch_channel('837')
+                    return
+                if input == 'peacock':
+                    print('Peacock')
+                    self._roku.launch_channel('593099')
+                    return
+                if input == 'channels':
+                    print('Please select a channel: ')
+                    x = self._roku.get_channel_ids()
                     return
                 if input == 'q':
                     print('Back')
@@ -133,7 +172,7 @@ class CLParser(object):
                     self._roku.send_command('Backspace')
                     return
                 if input == 'k':
-                    print('Keyboard Mode\n')
+                    print('Keyboard Mode')
                     print('Type "esc" at any time to exit keyboard.')
                     self._keymode = True
                     return
