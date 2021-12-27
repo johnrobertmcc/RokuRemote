@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="Roku by J.R.",
+    name="Roku by JR",
     entry_points={
         'console_scripts': ['roku=remote.main:main'],
     },
@@ -9,6 +9,5 @@ setup(
     author='J.R. McCann',
     version='1.0',
     author_email='john.robert.mcc@gmail.com',
-    packages=['Roku by J.R.'],
     install_requires=[],
 )
