@@ -2,9 +2,10 @@ import requests
 import sys
 import xmltodict
 
+
 class RokuConnector(object):
 
-    def __init__(self, ip = False):
+    def __init__(self, ip=False):
         self.ip = ip
         self.uri = 'http://{}:8060'.format(self.ip)
 
@@ -24,7 +25,6 @@ class RokuConnector(object):
             print('shit sorry try again')
             sys.exit()
 
-
     def launch_channel(self, cmd):
         """
             Method to launch specfic App channels on Roku.
@@ -35,7 +35,7 @@ class RokuConnector(object):
         channel_launch = '{}/launch/{}'.format(self.uri, cmd)
         r = requests.post(channel_launch)
 
-        if(r.ok):
+        if r.ok:
             return r.ok
         else:
             print('nope')
@@ -56,7 +56,6 @@ class RokuConnector(object):
             print('No channels found.')
             sys.exit
 
-
     def return_channel_list(self, obj):
         """
             Method to collect channels from Roku query.
@@ -74,7 +73,6 @@ class RokuConnector(object):
                     app_ids.append(value[data])
 
         self.choose_channel(channels, app_ids)
-
 
     def choose_channel(self, channels, ids):
         """
@@ -95,4 +93,3 @@ class RokuConnector(object):
         else:
             print("Back to remote.")
             return
-

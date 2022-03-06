@@ -1,11 +1,13 @@
 import nmap
 import sys
 
+
 class Network(object):
     """
         Class that scans the user's network for available IP addresses.
     """
-    def __init__ (self):
+
+    def __init__(self):
         ip = input("Please enter your custom IP router address, or press the Enter key to use default.\n")
         self.ip = ip
         self.roku_ip = False
@@ -40,7 +42,7 @@ class Network(object):
         """
             Method that allows the user to pick which IP address where their Roku is attached.
         """
-        while(self.roku_ip == False):
+        while not self.roku_ip:
             if len(self.ip_addresses) > 0:
                 for i, address in enumerate(self.ip_addresses):
                     self.dict[str(i)] = address
@@ -56,4 +58,3 @@ class Network(object):
                     sys.exit()
             else:
                 return
-

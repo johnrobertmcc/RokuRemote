@@ -1,12 +1,12 @@
-from netdisco.discovery import NetworkDiscovery
 import sys
+
 from .network import Network
 
-class IP():
+
+class IP:
     """
         Class that declares the computer's and Roku's ip addresses.
     """
-
 
     def __init__(self):
         if 2 > len(sys.argv):
@@ -20,7 +20,7 @@ class IP():
         """
             Method that allows the user to entertheir own custom IP address or choose from a populated list.
         """
-        while(self.running == True):
+        while self.running:
             print('Would you like help getting the IP address of your Roku?(Y/N)\n')
             inp = input()
 
@@ -39,7 +39,7 @@ class IP():
             Method that scans the network for available devices on the devices.
         """
         network = Network()
-        while(network.roku_ip == False):
+        while not network.roku_ip:
             network.scanner()
         self.ip = network.roku_ip
         self.running = False
