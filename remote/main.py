@@ -1,7 +1,7 @@
 import sys
-from .connector import RokuConnector
-from .cli import CLParser
-from .ip_address import IP
+from remote.connector import RokuConnector
+from remote.cli import CLParser
+from remote.ip_address import IP
 
 
 def main():
