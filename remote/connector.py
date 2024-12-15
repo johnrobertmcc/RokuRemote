@@ -22,7 +22,7 @@ class RokuConnector(object):
         if r.ok:
             return r.ok
         else:
-            print('shit sorry try again')
+            print(r)
             sys.exit()
 
     def launch_channel(self, cmd):
